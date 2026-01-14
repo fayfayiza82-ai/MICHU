@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Distributor Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <a href="index.html" class="logo">
+                <div class="logo-symbol"></div>
+                <span class="logo-text">MICHU</span>
+            </a>
+            
+            <nav class="dashboard-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-chart-line"></i> Overview
+                </a>
+                <a href="#orders" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Orders
+                </a>
+                <a href="#products" class="nav-item">
+                    <i class="fas fa-box"></i> Products
+                </a>
+                <a href="#documents" class="nav-item">
+                    <i class="fas fa-file-alt"></i> Documents
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+            </nav>
+            
+            <button id="logoutBtn" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Welcome, <span id="distributorName">Distributor</span></h1>
+                <div class="header-actions">
+                    <button class="btn-secondary">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-info">
+                            <h3 id="pendingOrders">0</h3>
+                            <p>Pending Orders</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="stat-info">
+                            <h3 id="completedOrders">0</h3>
+                            <p>Completed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-box"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Products</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-section">
+                    <h2>Recent Orders</h2>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTable">
+                                <tr>
+                                    <td colspan="5" class="text-center">No orders yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="dashboard-section">
+                    <h2>Available Products</h2>
+                    <div id="productsGrid" class="products-grid-small">
+                        <p>Loading products...</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-section">
+                    <h2>Quick Actions</h2>
+                    <div class="actions-grid">
+                        <button class="action-card">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>New Order</span>
+                        </button>
+                        <button class="action-card">
+                            <i class="fas fa-download"></i>
+                            <span>Download Catalog</span>
+                        </button>
+                        <button class="action-card">
+                            <i class="fas fa-file-invoice"></i>
+                            <span>View Invoices</span>
+                        </button>
+                        <button class="action-card">
+                            <i class="fas fa-headset"></i>
+                            <span>Contact Support</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="portal-dashboard.js"></script>
+</body>
+</html>

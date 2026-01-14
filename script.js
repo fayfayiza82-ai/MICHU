@@ -254,11 +254,30 @@ function createProductCard(product) {
         weight: sanitizeHTML(product.weight || ''),
         certification: sanitizeHTML(product.certification || ''),
         packaging: sanitizeHTML(product.packaging || ''),
-        color: product.color || 'var(--color-beige)'
+        color: product.color || 'var(--color-beige)',
+        image_url: product.image_url || ''
     };
     
+    // Select image based on product type if no URL is provided
+    let defaultImage = 'https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?auto=format&fit=crop&w=600&q=80'; // Default (Texture)
+    
+    const typeLower = (safeProduct.type + ' ' + safeProduct.name).toLowerCase();
+    
+    if (typeLower.includes('bread') || typeLower.includes('strong')) {
+        defaultImage = 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'; // Bread Flour (Sacks)
+    } else if (typeLower.includes('pastry') || typeLower.includes('cake') || typeLower.includes('soft')) {
+        defaultImage = 'https://i.ibb.co/G4wXRBnc/grok-1768113435209.jpg'; // Pastry Flour (Soft/White)
+    } else if (typeLower.includes('whole') || typeLower.includes('brown') || typeLower.includes('special')) {
+        defaultImage = 'https://i.ibb.co/DgY4BDt9/grok-1768113581907.jpg'; // Whole Wheat (Grain/Field)
+    }
+
+    const displayImage = safeProduct.image_url || defaultImage;
+    
+    const imageHtml = `<img src="${displayImage}" alt="${safeProduct.name}" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0;" onerror="this.style.display='none'">`;
+
     card.innerHTML = `
-        <div class="product-image" style="background-color: ${safeProduct.color}">
+        <div class="product-image" style="background-color: ${safeProduct.color}; position: relative; overflow: hidden;">
+            ${imageHtml}
             <div class="product-overlay"></div>
         </div>
         <div class="product-info">

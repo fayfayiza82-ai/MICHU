@@ -3,7 +3,7 @@ class EmailNotificationService {
     constructor() {
         // Replace these with your actual EmailJS credentials
         this.emailJSPublicKey = 'user_abcdef123456'; // From Account → General
-        this.serviceID = 'service_abc123'; // From Email Services
+        this.serviceID = 'service_tiicq37'; // From Email Services
         this.templateID = 'template_xyz789'; // From Email Templates
         this.init();
     }

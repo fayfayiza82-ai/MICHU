@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributor Portal - MICHU Flour Mills</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="portal-container">
+        <div class="portal-header">
+            <a href="../index.html" class="logo">
+                <div class="logo-symbol"></div>
+                <span class="logo-text">MICHU</span>
+            </a>
+        </div>
+        
+        <div class="portal-box">
+            <h1>Distributor Portal</h1>
+            <p class="portal-subtitle">Access your account</p>
+            
+            <!-- Sign In Form -->
+            <form id="loginForm" class="portal-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-input" required>
+                </div>
+                
+                <button type="submit" class="portal-btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                
+                <div id="loginMessage" class="portal-message"></div>
+            </form>
+            
+            <!-- Sign Up Form (Hidden by default) -->
+            <form id="signupForm" class="portal-form" style="display: none;">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" class="form-input" required minlength="6">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signupCompany">Company Name</label>
+                    <input type="text" id="signupCompany" class="form-input" required>
+                </div>
+                
+                <button type="submit" class="portal-btn-primary">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+                
+                <div id="signupMessage" class="portal-message"></div>
+            </form>
+            
+            <div class="portal-footer">
+                <p id="toggleText">Don't have an account? <a href="#" id="toggleForm">Sign Up</a></p>
+                <p style="margin-top: 10px;"><a href="../index.html#contact">Contact us for inquiries</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase.js"></script>
+    <script src="../js/portal-auth.js"></script>
+</body>
+</html>

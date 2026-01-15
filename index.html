@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌾</text></svg>">
     <meta name="csrf-token" content="">
     
@@ -71,11 +71,12 @@
             </a>
             <div class="nav-menu">
                 <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
                 <a href="#products" class="nav-link">Products</a>
                 <a href="#quality" class="nav-link">Quality</a>
                 <a href="#packaging" class="nav-link">Packaging</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="#inquiry" class="nav-btn">Distributor Inquiry</a>
+                <a href="#contact" class="nav-btn">Distributor Inquiry</a>
             </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -131,6 +132,7 @@
         </div>
     </section>
 
+
     <!-- Products Section -->
     <section id="products" class="section products">
         <div class="container">
@@ -176,16 +178,16 @@
             </div>
             <div class="certifications">
                 <div class="cert-item">
-                    <div class="cert-icon">USDA</div>
-                    <p class="cert-label">Organic</p>
+                    <div class="cert-icon">QA</div>
+                    <p class="cert-label">Quality Assured</p>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-icon">EU</div>
-                    <p class="cert-label">Certified</p>
+                    <div class="cert-icon">HS</div>
+                    <p class="cert-label">Hygienic Standards</p>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-icon">ISO</div>
-                    <p class="cert-label">22000:2018</p>
+                    <div class="cert-icon">ET</div>
+                    <p class="cert-label">Made in Ethiopia</p>
                 </div>
                 <div class="cert-item">
                     <div class="cert-icon">GF</div>
@@ -211,14 +213,14 @@
                     </div>
                 </div>
                 <div class="packaging-item">
-                    <div class="packaging-img img-10kg"></div>
+                    <div class="packaging-img img-25kg"></div>
                     <div class="packaging-info">
                         <h3>25kg Professional</h3>
                         <p>Reinforced handles, moisture barrier lining. For daily kitchen use.</p>
                     </div>
                 </div>
                 <div class="packaging-item">
-                    <div class="packaging-img img-25kg"></div>
+                    <div class="packaging-img img-50kg"></div>
                     <div class="packaging-info">
                         <h3>50kg Bulk</h3>
                         <p>Export-ready packaging with multilingual labeling for global distribution.</p>
@@ -246,13 +248,14 @@
                     
                     <div class="distributor-login">
                         <h3 class="contact-heading">Existing Distributors</h3>
-                        <p>Access your portal for orders and documentation.</p>
-                        <a href="distributor-portal.html" class="portal-btn">Distributor Portal</a>
+                        <p>Already a partner? Sign in to access your dashboard, place orders, and view documentation.</p>
+                        <a href="pages/distributor-portal.html" class="portal-btn">Sign In / Sign Up</a>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="inquiryForm">
-                        <h3 class="form-title">Inquiry Form</h3>
+                        <h3 class="form-title">Partnership Inquiry</h3>
+                        <p style="font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 20px;">Interested in becoming a distributor? Fill out this form and we'll contact you.</p>
                         <div class="form-group">
                             <select id="inquiryType" class="form-select" required>
                                 <option value="" disabled selected>Select Inquiry Type</option>
@@ -297,7 +300,7 @@
                         <div class="logo-symbol"></div>
                         <span class="logo-text">MICHU</span>
                     </a>
-                    <p class="footer-tagline">The Foundation of Excellence Since 1928</p>
+                    <p class="footer-tagline">The Foundation of Excellence Since 2000</p>
                 </div>
                 <div class="footer-col">
                     <h3 class="footer-heading">Products</h3>
@@ -330,8 +333,8 @@
             <div class="footer-bottom">
                 <p class="copyright">© 2025 MICHU Flour Mills. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer-bottom-link">Terms & Conditions</a>
+                    <a href="pages/privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="pages/terms.html" class="footer-bottom-link">Terms & Conditions</a>
                     <a href="sitemap.xml" class="footer-bottom-link">Sitemap</a>
                 </div>
             </div>
@@ -339,13 +342,13 @@
     </footer>
 
     <!-- Admin Link (hidden in production) -->
-    <a href="admin.html" class="admin-link" style="display: none;">Admin</a>
+    <a href="admin/admin.html" class="admin-link" style="display: none;">Admin</a>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="csrf-protection.js"></script>
-    <script src="email-service.js"></script>
-    <script src="supabase.js"></script>
-    <script src="script.js"></script>
+    <script src="js/csrf-protection.js"></script>
+    <script src="js/email-service.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

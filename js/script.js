@@ -264,7 +264,7 @@ function createProductCard(product) {
     const typeLower = (safeProduct.type + ' ' + safeProduct.name).toLowerCase();
     
     if (typeLower.includes('bread') || typeLower.includes('strong')) {
-        defaultImage = 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80'; // Bread Flour (Sacks)
+        defaultImage = "https://i.ibb.co/vvqwXzCR/bread-michu.jpg"; // Bread Flour (Sacks)
     } else if (typeLower.includes('pastry') || typeLower.includes('cake') || typeLower.includes('soft')) {
         defaultImage = 'https://i.ibb.co/G4wXRBnc/grok-1768113435209.jpg'; // Pastry Flour (Soft/White)
     } else if (typeLower.includes('whole') || typeLower.includes('brown') || typeLower.includes('special')) {

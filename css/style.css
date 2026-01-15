@@ -501,6 +501,53 @@ p {
     font-size: 0.95rem;
 }
 
+/* Mobile Quality Process Cards */
+.quality-process {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.process-card {
+    background: var(--color-white);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.process-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-solid));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: var(--color-white);
+}
+
+.process-card h3 {
+    font-family: var(--font-serif);
+    color: var(--color-brown);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.process-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+}
+
 .certifications {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -559,78 +606,97 @@ p {
 
 .packaging-item {
     text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.packaging-item:hover {
+    transform: translateY(-8px);
 }
 
 .packaging-img {
     width: 100%;
     height: 400px;
-    background-color: var(--color-beige);
     margin-bottom: var(--space-md);
     position: relative;
-    transition: var(--transition-smooth);
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+.packaging-img::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    background: linear-gradient(180deg, #f5f0e8 0%, #e8dcc8 100%);
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2), inset 0 2px 10px rgba(255,255,255,0.5);
+    transform: perspective(600px) rotateY(-5deg);
+}
+
+.packaging-img::after {
+    position: absolute;
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-brown);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+    letter-spacing: 0.05em;
 }
 
 .packaging-img:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-md);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(184, 161, 106, 0.3);
+}
+
+.packaging-img:hover::before {
+    transform: perspective(600px) rotateY(5deg) scale(1.05);
 }
 
 .img-5kg::after {
     content: '5kg';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    color: var(--color-brown);
-    text-shadow: 0 2px 4px rgba(255,255,255,0.8);
 }
 
-.img-10kg::after {
-    content: '10kg';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    color: var(--color-brown);
-    text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+.img-5kg::before {
+    background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 50%, #d4c4a8 100%);
 }
 
 .img-25kg::after {
     content: '25kg';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    color: var(--color-brown);
-    text-shadow: 0 2px 4px rgba(255,255,255,0.8);
 }
 
-.img-5kg {
-    background-image: url('');
+.img-25kg::before {
+    width: 240px;
+    height: 320px;
+    background: linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 50%, #c4b498 100%);
 }
 
-.img-10kg {
-    background-image: url();
+.img-50kg::after {
+    content: '50kg';
 }
 
-.img-25kg {
-    background-image: url('');
+.img-50kg::before {
+    width: 260px;
+    height: 340px;
+    background: linear-gradient(135deg, #d4c4a8 0%, #c4b498 50%, #b8a16a 100%);
 }
 
 .packaging-info h3 {
+    font-family: var(--font-serif);
     color: var(--color-brown);
+    font-size: 1.5rem;
     margin-bottom: var(--space-xs);
+}
+
+.packaging-info p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
 }
 
 /* Contact Section */
@@ -1002,7 +1068,8 @@ p {
     
     /* Hero Optimizations */
     .hero {
-        height: 100svh;
+        height: 70vh;
+        min-height: 500px;
         padding: 0 1rem;
     }
     
@@ -1123,6 +1190,33 @@ p {
         border-radius: 12px;
     }
     
+    /* Quality Process Cards */
+    .quality-process {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .process-card {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+    
+    .process-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .process-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .process-card p {
+        font-size: 0.85rem;
+    }
+    
     /* Certifications */
     .certifications {
         grid-template-columns: repeat(2, 1fr);
@@ -1138,6 +1232,25 @@ p {
     .packaging-img {
         height: 350px;
         border-radius: 12px;
+    }
+    
+    .packaging-img::before {
+        width: 160px;
+        height: 240px;
+    }
+    
+    .img-25kg::before {
+        width: 180px;
+        height: 260px;
+    }
+    
+    .img-50kg::before {
+        width: 200px;
+        height: 280px;
+    }
+    
+    .packaging-img::after {
+        font-size: 2.5rem;
     }
     
     /* Contact Form */

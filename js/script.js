@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initFormHandler();
     loadProducts();
+    initParallax();
     
     // Navbar scroll effect
     window.addEventListener('scroll', handleNavbarScroll);
@@ -20,24 +21,30 @@ function initMobileMenu() {
     
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
-                navMenu.style.left = '0';
-                navMenu.style.right = '0';
-                navMenu.style.backgroundColor = 'var(--color-white)';
-                navMenu.style.padding = 'var(--space-md)';
-                navMenu.style.gap = 'var(--space-md)';
-                navMenu.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            navMenu.classList.toggle('active');
+            
+            // Toggle icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileMenuBtn.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.style.display = 'none';
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
         });
     }
@@ -82,6 +89,22 @@ function initScrollAnimations() {
     document.querySelectorAll('.product-card').forEach(card => {
         card.classList.add('fade-in');
         observer.observe(card);
+    });
+}
+
+// Parallax Effect for Mobile
+function initParallax() {
+    const heroContent = document.querySelector('.hero-content');
+    
+    window.addEventListener('scroll', () => {
+        // Only apply on mobile and near top of page
+        if (window.innerWidth <= 768 && window.scrollY < 600) {
+            const scrolled = window.scrollY;
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
+                heroContent.style.opacity = 1 - (scrolled / 500);
+            }
+        }
     });
 }
 
@@ -345,7 +368,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             // Close mobile menu if open
             const navMenu = document.querySelector('.nav-menu');
             if (navMenu && window.innerWidth <= 768) {
-                navMenu.style.display = 'none';
+                navMenu.classList.remove('active');
             }
         }
     });

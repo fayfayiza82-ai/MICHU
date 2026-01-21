@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/pages/privacy-policy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/pages/terms.html"
+    },
+    {
+      "source": "/distributor-portal",
+      "destination": "/pages/distributor-portal.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/admin.html"
+    },
+    {
+      "source": "/distributor-dashboard",
+      "destination": "/admin/distributor-dashboard.html"
+    }
+  ],
+  "cleanUrls": true
+}
